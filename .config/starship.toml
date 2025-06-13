@@ -1,0 +1,42 @@
+
+right_format = """$cmd_duration$time"""
+
+
+[hostname]
+disabled = true
+
+[username]
+disabled = true
+
+[directory]
+style = "#bd93f9"
+
+[localip]
+ssh_only = false
+disabled = false
+format = ' [$localipv4](bold cyan) '
+
+
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[✖](bold red) '
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style) '
+
+[cmd_duration]
+min_time = 500
+format = 'took [$duration](bold yellow)'
+
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = ' '
+
+[python]
+symbol = '[ ](bold white) '
+
+[golang]
+symbol = '[   ](bold cyan)'
