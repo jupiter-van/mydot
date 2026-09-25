@@ -15,7 +15,9 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-source ~/.config/fzf/fzf-git.sh
+if [[ -f ~/.config/fzf/fzf-git.sh ]]; then
+  source ~/.config/fzf/fzf-git.sh
+fi
 
 # VSCode Socket Path
 function make_code_work() {
@@ -94,10 +96,10 @@ alias cd='z'
 alias mcw='make_code_work'
 
 # env
-export PATH=$PATH:/usr/local/go/bin:/root/.local/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/.local/bin
 export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # Init 
 eval "$(starship init zsh)"
@@ -107,4 +109,4 @@ WORDCHARS='-'
 
 fastfetch
 
-. "$HOME/.local/bin/env"
+[[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
